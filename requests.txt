@@ -1,0 +1,7 @@
+export TOKEN=`curl -d '{"email":"<EMAIL>","password":"<PASSWORD>"}' -H "Content-Type: application/json" -X POST <EXTERNAL-IP URL>/auth  | jq -r '.token'`
+
+export URL=a9fe66bba90fc41ae9e6b9afb5820980-1530358056.eu-west-1.elb.amazonaws.com
+
+export TOKEN=`curl -d '{"email":"adrianvdh@gmail.com","password":"pass123"}' -H "Content-Type: application/json" -X POST ${URL}/auth  | jq -r '.token'`
+
+curl --request GET ${URL}/contents -H "Authorization: Bearer ${TOKEN}" | jq 
